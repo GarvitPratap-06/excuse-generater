@@ -1,11 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Excuse Generater</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 150px;
+            background-color: #eef4ff;
+        }
+
+        h1 {
+            color: #003366;
+        }
+
+        #excuse {
+            margin: 20px;
+            font-size: 18px;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin: 5px;
+            background-color: #003366;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
-    
+
+    <h1>Excuse Generater</h1>
+
+    <p id="excuse">Click to get an excuse</p>
+
+    <button onclick="getExcuse()">Get Excuse</button>
+    <button onclick="nextExcuse()">Next</button>
+    <button onclick="previousExcuse()">Previous</button>
+
+    <script>
+        var excuses = [
+            "Sir, my laptop suddenly stopped working while doing ISA.",
+            "I saved the ISA file but it did not open today.",
+            "There was a power cut when I was about to finish.",
+            "I thought the submission was next week.",
+            "My system was updating for a long time.",
+            "I completed it but forgot to bring it today."
+        ];
+
+        var index = -1;
+
+        function getExcuse() {
+            index = 0;
+            document.getElementById("excuse").innerHTML = excuses[index];
+        }
+
+        function nextExcuse() {
+            if (index < excuses.length - 1) {
+                index++;
+                document.getElementById("excuse").innerHTML = excuses[index];
+            }
+        }
+
+        function previousExcuse() {
+            if (index > 0) {
+                index--;
+                document.getElementById("excuse").innerHTML = excuses[index];
+            }
+        }
+    </script>
+
 </body>
 </html>
